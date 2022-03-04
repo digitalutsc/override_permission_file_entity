@@ -1,0 +1,13 @@
+{
+    "name": "override_permission_file_entity",
+    "type": "drupal-module",
+    "description": "My Awesome Module",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/override_permission_file_entity",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/override_permission_file_entity",
+        "source": "http://cgit.drupalcode.org/override_permission_file_entity",
+    },
+}
