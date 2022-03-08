@@ -1,0 +1,25 @@
+diff --git a/file_entity.module b/file_entity.module
+index 1f6756c..60d372f 100644
+--- a/file_entity.module
++++ b/file_entity.module
+@@ -160,7 +160,6 @@ function file_entity_entity_type_alter(&$entity_types) {
+     ->setFormClass('edit', 'Drupal\file_entity\Form\FileEditForm')
+     ->setFormClass('inline_edit', 'Drupal\file_entity\Form\FileInlineEditForm')
+     ->setFormClass('delete', 'Drupal\Core\Entity\ContentEntityDeleteForm')
+-    ->setAccessClass('Drupal\file_entity\FileEntityAccessControlHandler')
+     ->set('field_ui_base_route', 'entity.file_type.edit_form')
+     ->setLinkTemplate('canonical', '/file/{file}')
+     ->setLinkTemplate('collection', '/admin/content/files')
+@@ -170,6 +169,12 @@ function file_entity_entity_type_alter(&$entity_types) {
+     ->setViewBuilderClass('Drupal\file_entity\Entity\FileEntityViewBuilder')
+     ->setListBuilderClass('Drupal\Core\Entity\EntityListBuilder');
+ 
++  $moduleHandler = \Drupal::service('module_handler');
++  if (!$moduleHandler->moduleExists('group') && !$moduleHandler->moduleExists('groupmedia')
++      && !$moduleHandler->moduleExists('group_permissions')) {
++      $entity_types['file']->setAccessClass('Drupal\file_entity\FileEntityAccessControlHandler');
++  }
++
+   /*$entity_types['file']['view modes']['teaser'] = array(
+     'label' => t('Teaser'),
+     'custom settings' => TRUE,

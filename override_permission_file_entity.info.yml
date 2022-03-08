@@ -1,7 +1,0 @@
-name: 'Override Permission for Private Files For Group'
-type: module
-description: 'This module is override Access Handle class removed effect of <code>View own private files</code> permission. More at https://github.com/digitalutsc/islandora_lite_docs/issues/31#issuecomment-1025840190'
-core_version_requirement: '^8 || ^9'
-package: Media
-dependencies:
-  - file_entity
